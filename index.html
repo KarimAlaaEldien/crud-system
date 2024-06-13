@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud system</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="container-lg py-5">
+        <h1 class="mb-4 text-white">Product management system</h1>
+        <div class="w-75 mx-auto">
+
+            <div class="form-floating mb-3">
+                <input type="text" oninput="validateInput(this)" class="form-control" id="productName" placeholder="productName:">
+                <div class="alert alert-danger p-1 mt-2 d-none">
+                    <small>It must start with a capital letter and must not exceed 8 characters.</small>
+                </div>
+                <label for="productName">product Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="number" oninput="validateInput(this)" class="form-control" id="ProductPrice" placeholder="ProductPrice:">
+                <div class="alert alert-danger p-1 mt-2 d-none">
+                    <small>It must start from 100 and not exceed 1000.</small>
+                </div>
+                <label for="ProductPrice">Product Price</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input list="categories" type="text" oninput="validateInput(this)" class="form-control" id="ProductCategory"
+                    placeholder="ProductCategory:">
+                    <div class="alert alert-danger p-1 mt-2 d-none">
+                        <small>You must choose from these options(TV,Mobile,Laptop,Screens,Other)</small>
+                    </div>
+                <label for="ProductCategory">Product category</label>
+                <datalist id="categories">
+                    <option value="TV" />
+                    <option value="Mobile" />
+                    <option value="Laptop" />
+                    <option value="Screens" />
+                    <option value="Other" />
+                </datalist>
+            </div>
+
+            <div class="form-floating mb-3">
+                <textarea class="form-control" oninput="validateInput(this)" id="ProductDescription" placeholder="ProductDescription:"></textarea>
+                <div class="alert alert-danger p-1 mt-2 d-none">
+                    <small>It must not exceed 10 characters.</small>
+                </div>
+                <label for="ProductDescription">Product description</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="file" accept="image/*" class="form-control" id="ProductImage" placeholder="ProductImage:">
+                <label for="ProductImage">Product Image</label>
+            </div>
+
+            <button id="btnAdd" class="btn btn-primary ">Add product</button>
+            <button id="updateBtn" class="btn btn-info d-none">Update product</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-floating mb-3">
+            <input type="search" oninput="searchValueFromProduct(this.value)" class="form-control" id="searchInput" placeholder="search Input:">
+            <label for="searchInput">Search.....</label>
+        </div>
+    </div>
+
+    <div class="container p-5">
+        <div class="row gy-4" id="allData">
+        </div>
+    </div>
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
+
