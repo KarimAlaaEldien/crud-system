@@ -28,10 +28,7 @@ if (localStorage.getItem("allProduct") != null) {
 }
 
 function addProduct() {
-    if (validateInput(productName) &&
-        validateInput(ProductPrice) &&
-        validateInput(ProductCategory) &&
-        validateInput(ProductDesc)) {
+    if (checkValidation()) {
         var product = {
             name: productName.value,
             price: ProductPrice.value,
@@ -89,6 +86,7 @@ function getDataToUpdate(index) {
     updateBtn.classList.remove("d-none");
 }
 function updateProducts() {
+    if(checkValidation()){
     productList[currentIndex].name = productName.value;
     productList[currentIndex].price = ProductPrice.value;
     productList[currentIndex].category = ProductCategory.value;
@@ -98,6 +96,7 @@ function updateProducts() {
     btnAdd.classList.remove("d-none");
     updateBtn.classList.add("d-none");
     updateInputValue();
+    }
 }
 function searchValueFromProduct(searchValue) {
     var searchItem = [];
@@ -127,4 +126,15 @@ function validateInput(element) {
         return false;
 
     }
+}
+function checkValidation(){
+    if(validateInput(productName) &&
+        validateInput(ProductPrice) &&
+        validateInput(ProductCategory) &&
+        validateInput(ProductDesc)){
+        return true;
+        }
+        else{
+            return false;
+        }
 }
